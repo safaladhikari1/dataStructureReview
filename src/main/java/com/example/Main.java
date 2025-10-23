@@ -13,12 +13,21 @@ public class Main {
 		for (int i = 0; i < testList.size(); i++) {
 			System.out.println(testList.get(i));
 		}
-		System.out.println("After change: ");
+		System.out.println("After Add: ");
 		testList.add(1, "d");
 		for (int i = 0; i < testList.size(); i++) {
 			System.out.println(testList.get(i));
 		}
-		// System.out.println(testList.size());
+		System.out.println("After Remove: ");
+		testList.remove(1);
+		for(int i=0; i < testList.size(); i++) {
+			System.out.println(testList.get(i));
+		}
+		System.out.println(testList.isEmpty());
+		System.out.println(testList);
+		
+		ArrayList<String> testList2 = new ArrayList<>();
+		//testList2.addAll(testList);
 
 	}
 
