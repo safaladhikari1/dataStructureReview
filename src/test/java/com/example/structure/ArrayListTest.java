@@ -32,6 +32,39 @@ public class ArrayListTest {
 		}
 	}
 	
+	@Test
+	public void sizeTest() {
+		String[] elementsToAdd = {"a", "b", "c"};
+		
+		for(int i=0; i < elementsToAdd.length; i++) {
+			list.add(elementsToAdd[i]);
+		}
+		
+		Assert.assertEquals("List should have size 3 after three calls to add()", 3, list.size());
+	}
 	
-
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void getNegativeIndexTest() {
+		list.get(-1);
+	}
+	
+	@Test
+	public void removeTest() {
+		String[] elementsToAdd = {"a", "b", "c"};
+		
+		for(int i=0; i < elementsToAdd.length; i++) {
+			list.add(elementsToAdd[i]);
+		}
+		
+		System.out.println(list.toString());
+		
+		for(int i=0; i < elementsToAdd.length; i++) {
+			list.remove(i);
+			System.out.println(list.toString());
+		}
+		
+		Assert.assertEquals("List size should be 0 after removing all elements", 0, list.size());
+		
+	}
+	
 }

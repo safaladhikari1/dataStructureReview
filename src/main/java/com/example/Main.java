@@ -4,25 +4,21 @@ import main.java.com.example.structure.ArrayList;
 
 public class Main {
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		ArrayList<String> testList = new ArrayList<>();
 		testList.add("a");
 		testList.add("b");
 		testList.add("c");
 		System.out.println("Before change: ");
-		for (int i = 0; i < testList.size(); i++) {
-			System.out.println(testList.get(i));
-		}
+		System.out.println(testList.toString());
+		
 		System.out.println("After Add: ");
 		testList.add(1, "d");
-		for (int i = 0; i < testList.size(); i++) {
-			System.out.println(testList.get(i));
-		}
+		System.out.println(testList.toString());
+		
 		System.out.println("After Remove: ");
 		testList.remove(1);
-		for(int i=0; i < testList.size(); i++) {
-			System.out.println(testList.get(i));
-		}
+		System.out.println(testList.toString());
 		System.out.println(testList.isEmpty());
 		System.out.println(testList);
 		
