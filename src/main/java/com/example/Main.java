@@ -17,13 +17,13 @@ public class Main {
 		System.out.println(testList.toString());
 		
 		System.out.println("After Remove: ");
-		testList.remove(1);
+		testList.remove("a");
 		System.out.println(testList.toString());
 		System.out.println(testList.isEmpty());
-		System.out.println(testList);
 		
 		ArrayList<String> testList2 = new ArrayList<>();
 		//testList2.addAll(testList);
+		//System.out.println(testList2.toString());
 
 	}
 

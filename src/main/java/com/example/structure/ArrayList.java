@@ -1,9 +1,10 @@
 package main.java.com.example.structure;
 
+import java.util.NoSuchElementException;
+
 import main.java.com.example.abstractDataType.List;
 
 // TODO
-// Add unit tests
 // Review Iterators
 
 // Review https://dev.java/learn/
@@ -111,15 +112,22 @@ public class ArrayList<T> implements List<T> {
 		size = 0;
 	}
 	
-	public void remove(int index) {
-		checkIndex(index);
-		
-		for(int i=index; i<size - 1; i++) {
-			typeData[i] = typeData[i + 1];
+	public void remove(T value) {		
+		if(!contains(value)) {
+			throw new NoSuchElementException(value + " does not exist in the list.");
+		} else {
+			for(int i=0; i < size; i++) {
+				if(typeData[i].equals(value)) {
+					for(int j=i; j < size - 1; j++) {
+						typeData[j] = typeData[j+1];
+					}
+					typeData[size - 1] = null;
+					size--;
+					
+					break;
+				}
+			}
 		}
-		
-		typeData[size - 1] = null;
-		size--;
 	}
 	
 	public void set(int index, T value) {

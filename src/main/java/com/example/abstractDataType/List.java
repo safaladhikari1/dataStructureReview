@@ -12,7 +12,7 @@ public interface List<T> extends Iterable<T>{
 
 	public void add(int index, T value);
 	public void addAll(List<T> other);
-	public void remove(int index);
+	public void remove(T value);
 	public void set(int index, T value);
 	public void clear();
 }

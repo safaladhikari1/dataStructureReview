@@ -1,5 +1,7 @@
 package test.java.com.example.structure;
 
+import java.util.NoSuchElementException;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -59,12 +61,47 @@ public class ArrayListTest {
 		System.out.println(list.toString());
 		
 		for(int i=0; i < elementsToAdd.length; i++) {
-			list.remove(i);
-			System.out.println(list.toString());
+			list.remove(elementsToAdd[i]);
 		}
 		
 		Assert.assertEquals("List size should be 0 after removing all elements", 0, list.size());
 		
 	}
 	
+	@Test
+	public void getNoSuchElementremoveTest() {
+		String[] elementsToAdd = {"a", "b", "c"};
+		
+		for(int i=0; i < elementsToAdd.length; i++) {
+			list.add(elementsToAdd[i]);
+		}
+		
+		String[] elementsToRemove = {"d", "e", "f"};
+		for(int i=0; i < elementsToAdd.length; i++) {
+			try {
+				list.remove(elementsToRemove[i]);
+				
+				Assert.fail("No exception is thrown when removing an element that doesn't exist: " + elementsToRemove[i]);
+			} catch (NoSuchElementException e) {
+				
+			}
+		}
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
