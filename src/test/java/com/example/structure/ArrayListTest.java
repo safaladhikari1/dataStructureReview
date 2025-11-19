@@ -1,5 +1,6 @@
 package test.java.com.example.structure;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import org.junit.Assert;
@@ -86,6 +87,29 @@ public class ArrayListTest {
 				
 			}
 		}
+	}
+	
+	@Test
+	public void hasNextIteratorTest() {
+		Iterator<String> testIterator = list.iterator();
+		Assert.assertEquals("Iterator should not report elements for a newly created list", false, testIterator.hasNext());		
+	}
+	
+	@Test
+	public void nextIteratorTest() {
+		String[] elementsToAdd = {"a", "b", "c"};
+		
+		for(int i=0; i < elementsToAdd.length; i++) {
+			list.add(elementsToAdd[i]);
+		}
+		
+		Iterator<String> testIterator = list.iterator();
+		
+		for(int i=0; i < elementsToAdd.length; i++) {
+			Assert.assertEquals("next() should return correct elements from the list", elementsToAdd[i], testIterator.next());
+		}
+		
+		Assert.assertEquals("hasNext() should return after reaching to the end of the list", false, testIterator.hasNext());			
 	}
 	
 }

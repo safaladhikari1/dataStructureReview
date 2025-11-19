@@ -1,12 +1,12 @@
 package main.java.com.example.structure;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import main.java.com.example.abstractDataType.List;
 
 // TODO
-// Review Iterators
-
+// 
 // Review https://dev.java/learn/
 
 public class ArrayList<T> implements List<T> {
@@ -156,6 +156,34 @@ public class ArrayList<T> implements List<T> {
 			
 			return result;
 		}
+	}
+	
+	public Iterator<T> iterator() {
+		return new ArrayListIterator();
+	}
+	
+	private class ArrayListIterator implements Iterator<T>{
+		
+		private int position;
+		
+		public ArrayListIterator() {
+			position = 0;
+		}
+		
+		public boolean hasNext() {
+			return position < size();
+		}
+		
+		public T next() {
+			if(!hasNext()) {
+				throw new NoSuchElementException();
+			}
+			
+			T result = typeData[position];
+			position++;
+			
+			return result;			
+		}	
 	}
 	
 	
